@@ -5,7 +5,8 @@
   grid-template-areas: 
   "header header header"
   "controls main character"
-  "Roller Roller log";
+  "controls results character"
+  "controls Roller log";
 } 
 
 button {

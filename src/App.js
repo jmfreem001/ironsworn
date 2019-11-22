@@ -40,7 +40,50 @@ export default class App extends Component  {
       bonds: [],
       vows: [],
       equipment: ['A simple ax', 'A family heirloom', 'simple armor', 'A battered shield']
-    }
+    },
+    moves: [
+        {
+          name: 'face danger',
+          description: 'When you attempt something risky or react to an ' +
+          'imminent threat, envision your action. You act...',
+          options: [
+            {choice:'With speed, agility, or precision', stat: 'edge'},
+            {choice:'With charm, loyalty, or courage', stat: 'heart'},
+            {choice:'With aggressive action, forceful defense, strength, or endurance', stat: 'iron'},
+            {choice:'With deception, stealth, or trickery', stat: 'shadow'},
+            {choice:'With expertise, insight, or observation', stat: 'wits'}
+          ],
+          strongHit: {description: 'You are successful.', value: 1, track: 'momentum'},
+          weakHit: {
+            description: 'You succeed, but face a troublesome cost.', 
+            options: [
+              {
+                choice: 'You are delayed, lose advantage, or face a new danger', 
+                value: -1, 
+                track: 'momentum'
+              },
+              {
+                choice: 'You are tired or hurt', 
+                value: 1, 
+                track: 'harm',
+                newMove: 'endure harm'
+              },
+              {
+                choice: ' You are dispirited or afraid', 
+                value: 1, 
+                track: 'stress',
+                newMove: 'endure stress'
+              },              {
+                choice: 'You sacrifice resources', 
+                value: -1, 
+                track: 'supply'
+              },
+            ],
+          },
+          miss: {description: 'You fail, or your progress is undermined by a dramatic and costly turn of events', newMove: 'pay the price'}
+        }
+      ]
+    
   }
   
   render() {
@@ -54,6 +97,7 @@ export default class App extends Component  {
           {/* <div className='character'>Character</div> */}
           <Character character={this.state.character} />
           <div className='main'>Main</div>
+          {/* <div className='results'> Results </div> */}
           {/* Character, Details about selected Character */}
           {/* The world. Details about world and NPCs encountered.  */}
           <div className='log'>Log</div>
