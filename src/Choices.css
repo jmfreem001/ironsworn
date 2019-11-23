@@ -1,0 +1,22 @@
+.option-choice{
+    border: 1px solid black;
+    /* width: 80%; */
+    /* margin-left: 125px; */
+    
+
+}
+
+.option-choice:hover{
+    border: 1px solid blue;
+    background-color: white;
+    cursor: pointer;
+}
+
+.option {
+    /* margin-bottom: 150px; */
+    align-items: center;
+}
+
+.main{
+    text-align: center;
+}

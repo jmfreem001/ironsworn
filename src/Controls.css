@@ -1,0 +1,24 @@
+.card{
+    margin: 10px;
+    box-shadow: 0 4px 8px #eee;
+    border: 1px solid gray;
+    font-size: small;
+    width: 80%
+}
+/* .card:hover{
+    border-color: rgb(114, 23, 218);
+} */
+.card-header{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card-header:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+
+.controls{
+    background-color: rgba(128, 128, 128, 0.514);
+}

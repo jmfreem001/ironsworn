@@ -6,7 +6,8 @@ export default function Character({character}) {
     const stats = Object.keys(character.stats)
     const statDisplay = stats.map(stat => <p key={stat} className="stats" data-header={stat}>: {character.stats[stat]}</p>)
 
-    const equipment = character.equipment.map(item => <li>{item}</li>)
+    
+    const equipment = character.equipment.map(item => <li key={item}>{item}</li>)
     return (
         <div className="character">
             <h3>{character.name} </h3>

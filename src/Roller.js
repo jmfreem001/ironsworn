@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Buttons from './Buttons'
 import * as _ from 'lodash'
 import './Roller.css'
+import Choices from './Choices'
 
 export default class Roller extends Component {
     constructor(props){
@@ -72,6 +73,7 @@ export default class Roller extends Component {
     render() {
         // console.log('', )
         console.log('state', this.state)
+        console.log('Props', this.props)
         let result = ''
         if (this.state.result){
             result = <div className='results'>
@@ -96,6 +98,10 @@ export default class Roller extends Component {
                     </div>
             
         } 
+        let options = []
+        if (this.props.selectedMove){
+            options = <Choices displayText ='TESTING' choicesArray={this.props.selectedMove.options}/>
+        }
         
         return (
             <>
@@ -107,6 +113,7 @@ export default class Roller extends Component {
                     <button style={{textTransform: "capitalize"}}onClick={this.handleDiceRoll}>Roll + {this.state.selectedStat}</button>    
                 </div>
                 {result}
+                {options}
             </>
         )
     }

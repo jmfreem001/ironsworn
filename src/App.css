@@ -2,6 +2,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: .33fr 1fr .45fr;
+  grid-template-rows: auto;
   grid-template-areas: 
   "header header header"
   "controls main character"
@@ -29,8 +30,8 @@ button {
 }
 .main{
   grid-area: main;
-  border: 1px solid black;
-  height: 200px;
+  /* border: 1px solid black; */
+  /* height: 200px; */
 
 }
 .log{
