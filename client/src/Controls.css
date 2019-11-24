@@ -1,7 +1,8 @@
 .card{
     margin: 10px;
-    box-shadow: 0 4px 8px #eee;
-    border: 1px solid gray;
+    box-shadow: 0 4px 8px #34403F;
+    border: 1px solid #495958;
+    background-color: #5e7271;
     font-size: small;
     width: 80%
 }
@@ -14,11 +15,11 @@
 }
 
 .card-header:hover{
-    color: blue;
+    color: #5e7271 ;
     cursor: pointer;
 }
 
 
 .controls{
-    background-color: rgba(128, 128, 128, 0.514);
+    background-color: #eee;
 }

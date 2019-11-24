@@ -1,3 +1,8 @@
+/* Primary COLOR - rgba(94,114,113,1)  / #5e7271 */
+/* Accent color light #758F8E */
+/* Accent colro dar - #34403F */
+
+
 .App {
   text-align: center;
   display: grid;
@@ -11,7 +16,7 @@
 } 
 
 button {
-  background-color: black;
+  background-color: #34403F;
   color: white;
 }
 
