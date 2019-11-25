@@ -1,15 +1,13 @@
 import React from 'react'
 import './Choices.css'
 
-export default function Choices({displayText, choicesArray}) {
+export default function Choices({displayText, choicesArray, clickHandler}) {
     //Add as a Modal Box
-    const clickHandler = (e) => {
-        alert('TODO')
-    }
+
     let options = null
     if (choicesArray){
         options = choicesArray
-        .map(choice => <p className='option-choice'key={choice.choice} onClick={clickHandler}>{choice.choice}</p>)
+        .map(choice => <p className='option-choice' data-id={choice.id} key={choice.id} onClick={clickHandler}>{choice.description || 'Confirm description and roll.'}</p>)
     }
     return (
         <div className='main option'>

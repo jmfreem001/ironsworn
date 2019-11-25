@@ -22,10 +22,10 @@ export default class Controls extends Component {
     categories = ['adventure', 'relationship', 'combat', 'suffer', 'quest', 'fate']
     // need a separate component for move cards
     // need a choice box component.
-
+    availableMoves = this.props.moves.filter(move => move.dependent === 0)
 
     render() {
-        let cards = this.props.moves
+        let cards = this.availableMoves
         .map(move =>  
             <MoveCard key={move.id} 
                 move={move} 
