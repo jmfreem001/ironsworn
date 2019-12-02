@@ -7,6 +7,7 @@ import Controls from './Controls';
 import Choices from './Choices';
 import { handleActionRoll } from './rollers';
 import Main from './Main';
+import Log from './Log';
 
 export default class App extends Component {
   state = {
@@ -17,25 +18,28 @@ export default class App extends Component {
     selectedMove: null,
     selectedStat: null,
     resultObject: null,
-    adds: 0
+    adds: 0,
+    entries: null,
+    logInput: ''
   };
 
   componentDidMount() {
-    this.callAPI('character')
-      .then(res => this.setState({ character: res }))
+    this.callAPI('characters')
+      // FIXME:Currently only want to set the first character. n
+      .then(res => this.setState({ character: res[0] }))
       .catch(err => console.log(err));
 
     this.callAPI('moves')
-      .then(res => this.setState({ moves: res }))
+      .then(res => this.setState({ moves: res.data.moves }))
       .catch(err => console.log(err));
 
-    this.callAPI('rolls')
-      .then(res => this.setState({ rolls: res }))
-      .catch(err => console.log(err));
+    // this.callAPI('rolls')
+    //   .then(res => this.setState({ rolls: res }))
+    //   .catch(err => console.log(err));
   }
 
   callAPI = async path => {
-    const response = await fetch(`api/${path}`);
+    const response = await fetch(`api/v1/${path}`);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
 
@@ -43,8 +47,9 @@ export default class App extends Component {
   };
 
   cardClickHandler = e => {
+    console.log('Event', e.target);
     let id = e.target.dataset.id;
-    let chosenMove = this.state.moves.find(move => move.id === Number(id));
+    let chosenMove = this.state.moves.find(move => move._id === id);
     console.log('Chosen move', chosenMove);
     this.setState({ selectedMove: chosenMove });
   };
@@ -52,9 +57,8 @@ export default class App extends Component {
   updateSelectedStat = e => {
     // alert('TODO')
     console.log('ID', e.target.dataset.id);
-    let selection = this.state.rolls.find(
-      roll => roll.id === Number(e.target.dataset.id)
-    );
+    let index = e.target.dataset.id;
+    let selection = this.state.selectedMove.rolls[index];
     let stat = selection.stat;
     // Account for edge cases where stat is the lesser or higher of two stats.
     let statArray = stat.split(' ');
@@ -70,18 +74,25 @@ export default class App extends Component {
       selectedStat: stat
     });
   };
+
+  logInputChangeHandler = e => {
+    console.log('Input', e.target.value);
+  };
+  logEntrySubmitHandler = e => {
+    alert('TODO');
+  };
   // ADD A FUNTION TO HANDLE STAT ARRAY
 
   render() {
     if (!this.state.character || !this.state.moves)
       return <div>...Loading</div>;
-
+    console.log('Selected Move', this.state.selectedMove);
     return (
       <div className="App">
         <Header />
         <Main
           moves={this.state.moves}
-          rolls={this.state.rolls}
+          // rolls={this.state.rolls}
           cardClickHandler={this.cardClickHandler}
           updateSelectedStat={this.updateSelectedStat}
           character={this.state.character}
@@ -97,7 +108,11 @@ export default class App extends Component {
         {/* The world. Details about world and NPCs encountered.  */}
         {/* PROGRESS BARS INCLUDING QUESTS BOND AND COMBAT JOURNEYS ETC. */}
         {/* NOTABLE ELEMENTS LOCATIONS PEOPLE COMMUNITIES ETC. */}
-        <div className="log">Log</div>
+        <Log
+          array={this.state.entries}
+          submitHandler={this.logEntrySubmitHandler}
+          changeHandler={this.logInputChangeHandler}
+        />
         {/* Log, the story so far.  */}
       </div>
     );

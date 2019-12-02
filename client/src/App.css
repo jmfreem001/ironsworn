@@ -2,44 +2,42 @@
 /* Accent color light #758F8E */
 /* Accent colro dar - #34403F */
 
-
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: .33fr 1fr .45fr;
+  grid-template-columns: 0.33fr 1fr 0.45fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  "header header header"
-  "controls main character"
-  "controls results character"
-  "controls results log";
-} 
+  grid-template-areas:
+    'header header header'
+    'log main character'
+    'log results character'
+    'log results character';
+}
 
 button {
-  background-color: #34403F;
+  background-color: #34403f;
   color: white;
 }
 
-.header{
+.header {
   grid-area: header;
   border: 1px solid black;
 }
 
-.controls{
+.controls {
   grid-area: controls;
   border: 1px solid black;
 }
-.character{
+.character {
   grid-area: character;
   border: 1px solid black;
 }
-.main{
+.main {
   grid-area: main;
   /* border: 1px solid black; */
   /* height: 200px; */
-
 }
-.log{
+.log {
   grid-area: log;
   border: 1px solid black;
 }

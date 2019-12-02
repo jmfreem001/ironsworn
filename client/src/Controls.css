@@ -1,25 +1,27 @@
-.card{
-    margin: 10px;
-    box-shadow: 0 4px 8px #34403F;
-    border: 1px solid #495958;
-    background-color: #5e7271;
-    font-size: small;
-    width: 80%
+.card {
+  margin: 10px;
+  box-shadow: 0 4px 8px #34403f;
+  border: 1px solid #495958;
+  background-color: #5e7271;
+  font-size: small;
+  width: 80%;
+  flex: 1 0 15%;
 }
 /* .card:hover{
     border-color: rgb(114, 23, 218);
 } */
-.card-header{
-    text-transform: uppercase;
-    font-weight: bold;
+.card-header {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.card-header:hover{
-    color: white ;
-    cursor: pointer;
+.card-header:hover {
+  color: white;
+  cursor: pointer;
 }
 
-
-.controls{
-    background-color: #eee;
+.controls {
+  background-color: #eee;
+  display: flex;
+  flex-wrap: wrap;
 }

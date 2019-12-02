@@ -21,9 +21,7 @@ export default class Main extends Component {
     console.log('Main props', this.props);
     let options = [];
     if (this.props.selectedMove) {
-      let choicesArray = this.props.rolls.filter(
-        roll => roll.move_id === this.props.selectedMove.id
-      );
+      let choicesArray = this.props.selectedMove.rolls;
       options = (
         <Choices
           displayText={this.props.selectedMove.name}
@@ -60,7 +58,7 @@ export default class Main extends Component {
         />
       );
     }
-
+    console.log('Main moves', this.props.moves);
     return (
       <div className="main">
         {/* Conditionally display each one */}

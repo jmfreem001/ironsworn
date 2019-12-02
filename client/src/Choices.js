@@ -6,11 +6,11 @@ export default function Choices({ displayText, choicesArray, clickHandler }) {
 
   let options = null;
   if (choicesArray) {
-    options = choicesArray.map(choice => (
+    options = choicesArray.map((choice, index) => (
       <p
         className="option-choice"
-        data-id={choice.id}
-        key={choice.id}
+        data-id={index}
+        key={choice.stat}
         onClick={clickHandler}
       >
         {choice.description || 'Confirm description and roll.'}
