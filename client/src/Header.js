@@ -1,10 +1,10 @@
-import React from 'react'
-import './Header.css'
+import React from 'react';
+import './Header.scss';
 
 export default function Header() {
-    return (
-        <div className='header'>
-            <h1>Ironsworn SOLO PLAY</h1>
-        </div>
-    )
+  return (
+    <div className="header">
+      <h1>Ironsworn SOLO PLAY</h1>
+    </div>
+  );
 }

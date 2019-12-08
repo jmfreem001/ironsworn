@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import * as _ from 'lodash';
-import './Results.css';
+import './Results.scss';
 
 const Results = ({ stats, selectedMove, results, selectedStat, adds }) => {
   // let moveResult = '';

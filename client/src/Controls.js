@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Controls.css';
+import './Controls.scss';
 
 const MoveCard = ({ move, clickHandler }) => {
   return (

@@ -1,0 +1,60 @@
+@import 'variables.scss';
+.Results {
+  background-color: $grey;
+  grid-area: Roller;
+  border: 0.1rem solid $black;
+  /* margin: 10px; */
+}
+
+.adds {
+  border-radius: 5%;
+  text-align: center;
+  width: 10%;
+  font-size: 1.6rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.adds:before {
+  content: attr(name);
+  font-weight: bold;
+}
+.six-sided {
+  border-radius: 10%;
+  background-color: $dice-color;
+}
+.ten-sided {
+  background-color: $dice-color;
+  border-radius: 25%;
+
+  /* border-radius: 20%; */
+}
+button {
+  margin: 1rem 0.5rem;
+}
+.ten-sided:before {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -8.5rem;
+  left: -1.8rem;
+  border-width: 0 4.5rem 3.5rem;
+  border-style: solid;
+  border-color: transparent transparent;
+}
+
+.die {
+  border: 0.1rem solid $dice-color;
+  padding: 1.5rem;
+  margin: 0.5rem 1rem 2rem;
+  margin-bottom: 1.2rem;
+  font-size: x-large;
+}
+
+/* h3{
+    margin: 30px;
+} */

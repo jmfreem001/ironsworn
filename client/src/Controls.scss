@@ -1,0 +1,25 @@
+@import 'variables.scss';
+.card {
+  margin: 1rem;
+  box-shadow: 0 0.4rem 0.8rem $black;
+  border: 0.1rem solid $black;
+  background-color: $grey;
+  font-size: small;
+  width: 80%;
+  flex: 1 0 15%;
+}
+
+.card-header {
+  text-transform: uppercase;
+  font-weight: bold;
+  &:hover {
+    color: blue;
+    cursor: pointer;
+  }
+}
+
+.controls {
+  background-color: $white;
+  display: flex;
+  flex-wrap: wrap;
+}

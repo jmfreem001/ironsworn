@@ -1,0 +1,21 @@
+@import 'variables.scss';
+.option-choice {
+  border: 0.1rem solid $black;
+  /* width: 80%; */
+  /* margin-left: 125px; */
+}
+
+.option-choice:hover {
+  border: 0.1rem solid $primary-color-light;
+  background-color: white;
+  cursor: pointer;
+}
+
+.option {
+  /* margin-bottom: 150px; */
+  align-items: center;
+}
+
+.main {
+  text-align: center;
+}

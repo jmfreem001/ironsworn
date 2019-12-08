@@ -1,0 +1,10 @@
+@import 'variables.scss';
+.header {
+  background: $primary-color-dark;
+  background: linear-gradient(
+    90deg,
+    $primary-color 7%,
+    $primary-color-light 68%,
+    $tertiary-color 100%
+  );
+}

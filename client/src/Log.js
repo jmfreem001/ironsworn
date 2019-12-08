@@ -1,5 +1,6 @@
 import React from 'react';
 import LogInput from './LogInput';
+import './Log.scss';
 
 export default function Log({ array, submitHandler, changeHandler }) {
   let entries = null;

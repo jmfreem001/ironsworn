@@ -1,5 +1,5 @@
 import React from 'react';
-import './Choices.css';
+import './Choices.scss';
 
 export default function Choices({ displayText, choicesArray, clickHandler }) {
   //Add as a Modal Box

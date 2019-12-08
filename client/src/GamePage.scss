@@ -1,9 +1,14 @@
-/* Primary COLOR - rgba(94,114,113,1)  / #5e7271 */
-/* Accent color light #758F8E */
-/* Accent colro dar - #34403F */
+@import 'variables.scss';
 
-.App {
+.GamePage {
   text-align: center;
+}
+
+button {
+  background-color: $primary-color-dark;
+  color: $white;
+}
+.content {
   display: grid;
   grid-template-columns: 0.33fr 1fr 0.45fr;
   grid-template-rows: auto;
@@ -12,34 +17,29 @@
     'log main character'
     'log results character'
     'log results character';
-}
-
-button {
-  background-color: #34403f;
-  color: white;
+  // background-image: url('./white-forest.jpg');
+  // background-size: cover;
 }
 
 .header {
   grid-area: header;
-  border: 1px solid black;
+  border: 0.1rem solid $black;
 }
 
 .controls {
   grid-area: controls;
-  border: 1px solid black;
+  border: 0.1rem solid $black;
 }
 .character {
   grid-area: character;
-  border: 1px solid black;
+  border: 0.1rem solid $black;
 }
 .main {
   grid-area: main;
-  /* border: 1px solid black; */
-  /* height: 200px; */
 }
 .log {
   grid-area: log;
-  border: 1px solid black;
+  border: 0.1rem solid $black;
 }
 
 /* 
