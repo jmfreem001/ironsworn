@@ -42,5 +42,24 @@ export const handleProgressRoll = () => {
 };
 
 export const handleOracleRoll = () => {
-  console.log('ORACLE ROLL - TODO');
+  let die1 = _.random(0, 9);
+  let die2 = _.random(0, 9);
+  let oracleDieResult = null;
+  if (die1 === 0 && die2 === 0) {
+    oracleDieResult = 100;
+  } else if (die1 === 0) {
+    oracleDieResult = die2;
+  } else {
+    oracleDieResult = Number('' + die1 + die2);
+  }
+
+  let match = false;
+  if (die1 === die2 && die1 !== 0) {
+    match = true;
+  }
+  // console.log('die1', die1);
+  // console.log('die2', die2);
+  // console.log('Oracle die result', oracleDieResult);
+  // let oracleDieResult = _.random(1, 100);
+  return { oracleDieResult, match };
 };

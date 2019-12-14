@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import '../variables.scss';
 
 .GamePage {
   text-align: center;
@@ -16,7 +16,7 @@ button {
     'header header header'
     'log main character'
     'log results character'
-    'log results character';
+    'log-book results character';
   // background-image: url('./white-forest.jpg');
   // background-size: cover;
 }

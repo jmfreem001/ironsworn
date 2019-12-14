@@ -3,6 +3,7 @@ const morgan = require('morgan');
 
 const moveRouter = require('./routes/moveRouter');
 const characterRouter = require('./routes/characterRouter');
+const oracleRouter = require('./routes/oracleRouter');
 // const trackRouter = require('./routes/trackRoutes');
 // const logRouter = require('./routes/logRoutes');
 
@@ -21,6 +22,7 @@ app.use(express.static(`${__dirname}/public`));
 // ROUTES
 app.use('/api/v1/moves', moveRouter);
 app.use('/api/v1/characters', characterRouter);
+app.use('/api/v1/oracles', oracleRouter);
 // app.use('api/v1/tracks', trackRouter);
 // app.use('api/v1/logs', logRouter);
 

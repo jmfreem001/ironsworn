@@ -50,14 +50,14 @@ export default class Main extends Component {
     }
     let moveList = null;
     // Show move list only if there isn't a selcted move
-    if (!this.props.selectedMove) {
-      moveList = (
-        <Controls
-          moves={this.props.moves}
-          cardClickHandler={this.props.cardClickHandler}
-        />
-      );
-    }
+    // if (!this.props.selectedMove) {
+    //   moveList = (
+    //     <Controls
+    //       moves={this.props.moves}
+    //       cardClickHandler={this.props.cardClickHandler}
+    //     />
+    //   );
+    // }
     console.log('Main moves', this.props.moves);
     return (
       <div className="main">

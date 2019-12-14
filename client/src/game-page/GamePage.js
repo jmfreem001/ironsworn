@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../Header';
 import Results from './Results';
-import Character from './Character';
+import Character from '../Character';
 import './GamePage.scss';
 import Controls from './Controls';
 import Choices from './Choices';
-import { handleActionRoll } from './rollers';
+import { handleActionRoll } from '../rollers';
 import Main from './Main';
 import Log from './Log';
+import LogBook from './LogBook';
 // import forest from '../public/white-forest.jpg';
 
 export default class GamePage extends Component {
@@ -16,12 +17,12 @@ export default class GamePage extends Component {
     character: null,
     moves: null,
     rolls: null,
+    oracles: null,
     selectedMove: null,
     selectedStat: null,
     resultObject: null,
     adds: 0,
-    entries: null,
-    logInput: ''
+    entries: []
   };
 
   componentDidMount() {
@@ -30,8 +31,12 @@ export default class GamePage extends Component {
       .then(res => this.setState({ character: res[0] }))
       .catch(err => console.log(err));
 
-    this.callAPI('moves')
-      .then(res => this.setState({ moves: res.data.moves }))
+    // this.callAPI('moves')
+    //   .then(res => this.setState({ moves: res.data.moves }))
+    //   .catch(err => console.log(err));
+
+    this.callAPI('oracles')
+      .then(res => this.setState({ oracles: res.data.oracles }))
       .catch(err => console.log(err));
 
     // this.callAPI('rolls')
@@ -75,19 +80,17 @@ export default class GamePage extends Component {
       selectedStat: stat
     });
   };
-
-  logInputChangeHandler = e => {
-    console.log('Input', e.target.value);
-  };
-  logEntrySubmitHandler = e => {
-    alert('TODO');
+  handleSend = newEntry => {
+    this.setState({ entries: [...this.state.entries, newEntry] });
   };
   // ADD A FUNTION TO HANDLE STAT ARRAY
 
   render() {
-    if (!this.state.character || !this.state.moves)
+    if (!this.state.character) {
       return <div>...Loading</div>;
-    console.log('Selected Move', this.state.selectedMove);
+    }
+    // || !this.state.moves)
+    // console.log('Selected Move', this.state.selectedMove);
     return (
       <div className="GamePage">
         <Header />
@@ -111,11 +114,8 @@ export default class GamePage extends Component {
           {/* The world. Details about world and NPCs encountered.  */}
           {/* PROGRESS BARS INCLUDING QUESTS BOND AND COMBAT JOURNEYS ETC. */}
           {/* NOTABLE ELEMENTS LOCATIONS PEOPLE COMMUNITIES ETC. */}
-          <Log
-            array={this.state.entries}
-            submitHandler={this.logEntrySubmitHandler}
-            changeHandler={this.logInputChangeHandler}
-          />
+          <Log onSend={this.handleSend} />
+          <LogBook data={this.state.entries} />
           {/* Log, the story so far.  */}
         </div>
       </div>
