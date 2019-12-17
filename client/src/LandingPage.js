@@ -5,7 +5,12 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <Link to="/campaign">Start/continue Campaign</Link>
+        <Link data-testid="campaignPageLink" to="/campaign">
+          Continue Campaign
+        </Link>
+        <Link data-testid="setupPageLink" to="/setup">
+          Setup a new Campaign
+        </Link>
       </div>
     );
   }

@@ -31,9 +31,9 @@ export default class GamePage extends Component {
       .then(res => this.setState({ character: res[0] }))
       .catch(err => console.log(err));
 
-    // this.callAPI('moves')
-    //   .then(res => this.setState({ moves: res.data.moves }))
-    //   .catch(err => console.log(err));
+    this.callAPI('moves')
+      .then(res => this.setState({ moves: res.data.moves }))
+      .catch(err => console.log(err));
 
     this.callAPI('oracles')
       .then(res => this.setState({ oracles: res.data.oracles }))
@@ -86,14 +86,14 @@ export default class GamePage extends Component {
   // ADD A FUNTION TO HANDLE STAT ARRAY
 
   render() {
-    if (!this.state.character) {
+    if (!this.state.character || !this.state.moves) {
       return <div>...Loading</div>;
     }
     // || !this.state.moves)
     // console.log('Selected Move', this.state.selectedMove);
     return (
       <div className="GamePage">
-        <Header />
+        <Header text="Ironsworn Solo Play" />
         <div className="content">
           {/* <img src={forest} /> */}
           <Main

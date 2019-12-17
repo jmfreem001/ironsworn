@@ -1,12 +1,11 @@
 const oracles = {
-  
- location : [
- {
-          "roll": "1",
-          "result": "Hideout"
-       },
-       {
-          "roll": "2",
+ "  location": [
+  {
+    "roll": "1",
+  "result": "Hideout"
+    },
+    {
+       "roll": "2",
           "result": "Ruin"
        },
        {

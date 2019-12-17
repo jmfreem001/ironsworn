@@ -4,7 +4,7 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import Log from '../game-page/Log';
 import LogInput from '../game-page/LogInput';
 
-describe('<Log Input />', () => {
+describe('<LogInput />', () => {
   let getByTestId;
 
   afterEach(cleanup);
