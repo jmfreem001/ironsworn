@@ -1,0 +1,21 @@
+@import '../variables.scss';
+.form {
+  background-color: $grey;
+  .primary-label {
+    // font-style: ; ;;
+    display: block;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  input {
+    margin-left: 1rem;
+  }
+  textarea {
+    margin-left: 1rem;
+  }
+  .stat-choice {
+    padding: 0.8rem;
+    text-transform: capitalize;
+    margin-right: 0.5rem;
+  }
+}

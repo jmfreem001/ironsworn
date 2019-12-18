@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-
+import { toBeDisabled, toBeChecked } from '@testing-library/jest-dom';
 import CharacterForm from '../setup-page/CharacterForm';
+expect.extend({ toBeDisabled, toBeChecked });
 
 describe.only('<CharacterForm />', () => {
   let getByTestId;
@@ -12,15 +13,17 @@ describe.only('<CharacterForm />', () => {
     let sendHandler = null;
     const charName = 'Bormir';
     const charRole = 'Mild-mannered Ex-raider';
+    const charNotes =
+      'Bormir looks intimidating but he is kind-hearted and reformed becuase of the love of Mika and her children.';
     const primaryStat = 'iron';
     const secondaryStat1 = 'heart';
     const secondaryStat2 = 'edge';
-    const tertiaryStat1 = 'will';
+    const tertiaryStat1 = 'wits';
     const tertiaryStat2 = 'shadow';
 
     beforeEach(() => {
       sendHandler = jest.fn();
-      ({ getByTestId } = render(<CharacterForm submitHandler={sendHandler} />));
+      ({ getByTestId } = render(<CharacterForm onSend={sendHandler} />));
 
       fireEvent.change(getByTestId('characterNameInput'), {
         target: {
@@ -32,28 +35,25 @@ describe.only('<CharacterForm />', () => {
           value: charRole
         }
       });
-      fireEvent.click(getByTestId('primaryStatInput'), {
+      fireEvent.change(getByTestId('characterNotesInput'), {
         target: {
-          value: primaryStat
+          value: charNotes
         }
       });
+      fireEvent.click(getByTestId(`primaryStatInput-${primaryStat}`));
     });
 
     it('calls the send handler', () => {
-      fireEvent.click(getByTestId('firstSecondaryStatInput'), {
-        target: {
-          value: secondaryStat1
-        }
-      });
-      fireEvent.click(getByTestId('secondSecondaryStatInput'), {
-        target: {
-          value: secondaryStat2
-        }
-      });
+      fireEvent.click(getByTestId(`firstSecondaryStatInput-${secondaryStat1}`));
+      fireEvent.click(
+        getByTestId(`secondSecondaryStatInput-${secondaryStat2}`)
+      );
+
       fireEvent.click(getByTestId('characterSubmitButton'));
       expect(sendHandler).toHaveBeenCalledWith({
         name: charName,
         role: charRole,
+        notes: charNotes,
         primaryStat: primaryStat,
         secondaryStat1: secondaryStat1,
         secondaryStat2: secondaryStat2,
@@ -67,6 +67,15 @@ describe.only('<CharacterForm />', () => {
         momentumReset: 2
       });
     });
-    it.todo('allows stat to be selected only once');
+    it('allows stat to be selected only once', () => {
+      // console.log(
+      //   'Iron element that should get disabled',
+      //   getByTestId(`firstSecondaryStatInput-${primaryStat}`)
+      // );
+      expect(getByTestId(`primaryStatInput-${primaryStat}`)).toBeChecked();
+      expect(
+        getByTestId(`firstSecondaryStatInput-${primaryStat}`)
+      ).toBeDisabled();
+    });
   });
 });

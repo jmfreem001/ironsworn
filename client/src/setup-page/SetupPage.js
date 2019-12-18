@@ -6,24 +6,30 @@ import CharacterForm from './CharacterForm';
 export default class SetupPage extends Component {
   state = {
     character: null,
-    selectedForm: null
+    selectedForm: null,
+    characterSubmitted: null
   };
 
   updateSelectedForm = e => {
-    console.log('formid', e.target.dataset.formid);
+    // console.log('formid', e.target.dataset.formid);
     this.setState({ selectedForm: e.target.dataset.formid });
   };
   characterSubmitHandler = newCharacter => {
-    //FIXME: Currently triggers a page reload becuase of
-    this.setState({ character: newCharacter });
+    this.setState({ character: newCharacter, characterSubmitted: true });
   };
 
   render() {
     let displayedForm = null;
-    if (this.state.selectedForm === 'character') {
-      displayedForm = (
-        <CharacterForm submitHandler={this.characterSubmitHandler} />
+    let result = null;
+    if (this.state.characterSubmitted) {
+      result = (
+        <div data-testid="characterSubmitResult">
+          Character Created successfully!
+        </div>
       );
+    }
+    if (this.state.selectedForm === 'character') {
+      displayedForm = <CharacterForm onSend={this.characterSubmitHandler} />;
     }
     return (
       <div>
@@ -43,6 +49,7 @@ export default class SetupPage extends Component {
           Create Character
         </button>
         {displayedForm}
+        {result}
       </div>
     );
   }

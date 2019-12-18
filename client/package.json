@@ -31,7 +31,9 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.0",
-    "@testing-library/react": "^9.3.3"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.3",
+    "eslint-plugin-jest-dom": "^1.4.2",
+    "node-sass": "^4.13.0"
   }
 }

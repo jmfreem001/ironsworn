@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 describe('Setup a new game entry', () => {
   beforeEach(() => {
     cy.seedAndVisit();
@@ -13,6 +12,9 @@ describe('Setup a new game entry', () => {
     cy.get('[data-testid="characterNameInput"]').type('Mikus');
     cy.get('[data-testid="characterRoleInput"]').type(
       'Gruff Hunter of Einsmark'
+    );
+    cy.get('[data-testid="characterNotesInput"]').type(
+      "Mikus is tough guy and is afraid of snakes. Spends a lot of time working with animals and doesn't always get along with humans."
     );
     cy.get('[data-testid="primaryStatInput"]')
       .children()
@@ -31,16 +33,12 @@ describe('Setup a new game entry', () => {
 
     cy.get('[data-testid="characterSubmitResult"]').contains('successfully');
 
-    //stats
+    cy.get('[data-testid="characterDisplay"]'.contains('Mikus'));
 
     //vows 1 background vow at extreme or epic then inciting incident
-
+    // Vows input fields.
     // bonds (up to 3)
-
-    // character notes, A paragraph filling in some info on the character
-    // motivations, interests, skills, personality, and weaknesses
-
-    //character creation form
+    //Get bonds input fields
   });
   it('create a fully randomized character', () => {
     // Character create button

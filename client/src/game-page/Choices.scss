@@ -3,12 +3,11 @@
   border: 0.1rem solid $black;
   /* width: 80%; */
   /* margin-left: 125px; */
-}
-
-.option-choice:hover {
-  border: 0.1rem solid $primary-color-light;
-  background-color: white;
-  cursor: pointer;
+  &:hover {
+    border: 0.1rem solid $primary-color-light;
+    background-color: white;
+    cursor: pointer;
+  }
 }
 
 .option {

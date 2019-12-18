@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 describe('Creating a log entry', () => {
   beforeEach(() => {
     cy.seedAndVisit();
