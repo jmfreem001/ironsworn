@@ -31,14 +31,39 @@ describe('Setup a new game entry', () => {
 
     cy.get('[data-testid="characterSubmitButton"]').click();
 
-    cy.get('[data-testid="characterSubmitResult"]').contains('successfully');
+    cy.get('[data-testid="characterSubmitResult"]').contains(/created/i);
+    /* Hides and disables form once submitted' */
 
-    cy.get('[data-testid="characterDisplay"]'.contains('Mikus'));
+    cy.get('[data-testid="characterNameInput"]').should('not.exist');
+    cy.get('[data-testid="createCharacterButton"]').should('be.disabled');
 
+    cy.get('[data-testid="characterDisplay"]')
+      .children()
+      .contains('Mikus');
+
+    // create bonds or leave some in reserve.
+    cy.get('[data-testid="bondsRemaining"]');
+    cy.get('[data-testid="bondNameInput"]').type('Einsmark');
+    cy.get('[data-testid="bondNotesInput"]');
+    cy.get('[data-testid="bondSubmitButton"]').click();
+
+    cy.get('[data-testid="bondNameInput"]').type('Mira');
+    cy.get('[data-testid="bondNotesInput"]').type(
+      'Sister. High Spirited. Has a friendly rivalry with Mikus'
+    );
+    cy.get('[data-testid="bondSubmitButton"]').click();
+
+    //Place final bond in reserve.
+    cy.get('[data-testid="bondReserveBox"]').click();
+    cy.get('[data-testid="bondSubmitButton"]').click();
+
+    cy.get('[data-testid="bondsSubmitResult"]').contains(/created/i);
+
+    // Vows should be visible on character card.
+
+    cy.get('[data-testid="Input"]');
     //vows 1 background vow at extreme or epic then inciting incident
     // Vows input fields.
-    // bonds (up to 3)
-    //Get bonds input fields
   });
   it('create a fully randomized character', () => {
     // Character create button

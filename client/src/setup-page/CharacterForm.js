@@ -46,22 +46,16 @@ const CharacterForm = ({ onSend }) => {
     primaryStat: '',
     secondaryStat1: '',
     secondaryStat2: '',
-    tertiaryStat1: '',
-    tertiaryStat2: '',
-    supply: 5,
-    health: 5,
-    spirit: 5,
-    momentum: 2,
     maxMomentum: 10,
     momentumReset: 2
   });
-  const [stats, setStats] = useState([
-    { name: 'iron', isSelected: false },
-    { name: 'heart', isSelected: false },
-    { name: 'edge', isSelected: false },
-    { name: 'wits', isSelected: false },
-    { name: 'shadow', isSelected: false }
-  ]);
+  const stats = [
+    { name: 'iron' },
+    { name: 'heart' },
+    { name: 'edge' },
+    { name: 'wits' },
+    { name: 'shadow' }
+  ];
   let changeHandler = e => {
     setCharacter({
       ...character,
@@ -80,26 +74,29 @@ const CharacterForm = ({ onSend }) => {
 
     const newCharacter = {
       ...character,
-      tertiaryStat1: remainingStats[0],
-      tertiaryStat2: remainingStats[1]
+
+      stats: {
+        [character.primaryStat]: 3,
+        [character.secondaryStat1]: 2,
+        [character.secondaryStat2]: 2,
+        [remainingStats[0]]: 1,
+        [remainingStats[1]]: 1,
+        supply: 5,
+        health: 5,
+        spirit: 5,
+        momentum: 2
+      }
     };
     onSend(newCharacter);
   };
   const _filterUnusedStats = () => {
     let statNames = stats.map(stat => stat.name);
-    // const usedStats = [
-    //   character.primaryStat,
-    //   character.secondaryStat1,
-    //   character.secondaryStat2
-    // ];
 
     for (let usedStat of usedStats) {
       statNames = statNames.filter(stat => stat !== usedStat);
     }
     return statNames;
   };
-  // console.log('CHARACTER', character);
-  // let statFilter =
 
   return (
     <div className="form">

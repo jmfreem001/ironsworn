@@ -10,17 +10,19 @@ export default function Character({ character }) {
     </p>
   ));
 
-  const equipment = character.equipment.map(item => <li key={item}>{item}</li>);
+  // const equipment = character.equipment.map(item => <li key={item}>{item}</li>);
   return (
-    <div className="character">
+    <div className="character" data-testid="characterDisplay">
       <h3>{character.name} </h3>
       <h4>
         <em>{character.role}</em>
       </h4>
       {statDisplay}
-      <h5>Equipment</h5>
-      <ul>{equipment}</ul>
+      {/* <h5>Equipment</h5>
+      <ul>{equipment}</ul> */}
       {/* Need to add Momentum. */}
+      {/* bonds */}
+      {/* vows */}
       <p>NEW CHAR DIV</p>
     </div>
   );

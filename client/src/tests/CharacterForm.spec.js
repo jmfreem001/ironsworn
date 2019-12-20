@@ -4,7 +4,7 @@ import { toBeDisabled, toBeChecked } from '@testing-library/jest-dom';
 import CharacterForm from '../setup-page/CharacterForm';
 expect.extend({ toBeDisabled, toBeChecked });
 
-describe.only('<CharacterForm />', () => {
+describe('<CharacterForm />', () => {
   let getByTestId;
 
   afterEach(cleanup);
@@ -54,24 +54,25 @@ describe.only('<CharacterForm />', () => {
         name: charName,
         role: charRole,
         notes: charNotes,
+        stats: {
+          [primaryStat]: 3,
+          [secondaryStat1]: 2,
+          [secondaryStat2]: 2,
+          [tertiaryStat1]: 1,
+          [tertiaryStat2]: 1,
+          supply: 5,
+          health: 5,
+          spirit: 5,
+          momentum: 2
+        },
         primaryStat: primaryStat,
         secondaryStat1: secondaryStat1,
         secondaryStat2: secondaryStat2,
-        tertiaryStat1,
-        tertiaryStat2,
-        supply: 5,
-        health: 5,
-        spirit: 5,
-        momentum: 2,
         maxMomentum: 10,
         momentumReset: 2
       });
     });
     it('allows stat to be selected only once', () => {
-      // console.log(
-      //   'Iron element that should get disabled',
-      //   getByTestId(`firstSecondaryStatInput-${primaryStat}`)
-      // );
       expect(getByTestId(`primaryStatInput-${primaryStat}`)).toBeChecked();
       expect(
         getByTestId(`firstSecondaryStatInput-${primaryStat}`)

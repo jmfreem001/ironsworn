@@ -1,0 +1,28 @@
+@import '../variables';
+
+.setup-page {
+  display: grid;
+  grid-template-columns: 1fr 0.45fr;
+  //   padding-left: 5rem;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header '
+    'buttons submit-result'
+    'form submit-result'
+    'form  character';
+  .submit-result {
+    grid-area: submit-result;
+    background-color: $white;
+    ul {
+      text-emphasis: none;
+      text-decoration: none;
+      list-style-type: none;
+    }
+  }
+  .buttons {
+    grid-area: buttons;
+  }
+  .form {
+    grid-area: form;
+  }
+}
