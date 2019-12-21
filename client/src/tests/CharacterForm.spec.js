@@ -69,7 +69,9 @@ describe('<CharacterForm />', () => {
         secondaryStat1: secondaryStat1,
         secondaryStat2: secondaryStat2,
         maxMomentum: 10,
-        momentumReset: 2
+        momentumReset: 2,
+        bonds: [],
+        vows: []
       });
     });
     it('allows stat to be selected only once', () => {

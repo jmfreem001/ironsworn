@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Header from '../Header';
 import Results from './Results';
 import Character from '../Character';
@@ -28,7 +29,7 @@ export default class GamePage extends Component {
   componentDidMount() {
     this.callAPI('characters')
       // FIXME:Currently only want to set the first character. n
-      .then(res => this.setState({ character: res[0] }))
+      .then(res => this.setState({ character: res.data.characters[0] }))
       .catch(err => console.log(err));
 
     this.callAPI('moves')
@@ -45,8 +46,10 @@ export default class GamePage extends Component {
   }
 
   callAPI = async path => {
-    const response = await fetch(`api/v1/${path}`);
-    const body = await response.json();
+    const response = await axios.get(`api/v1/${path}`);
+    // console.log('Response', response);
+    const body = await response.data;
+    // console.log('body', body);
     if (response.status !== 200) throw Error(body.message);
 
     return body;

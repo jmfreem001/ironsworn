@@ -25,33 +25,35 @@ export default class SetupPage extends Component {
     });
   };
   bondSubmitHandler = newBond => {
-    // this.setState({
-    //   character: {
-    //     ...character,
-    //     bonds: bonds.concat(newBond)
-    //   },
-    //   bondSubmitted: true,
-    //   selectedForm: null
-    // });
+    this.setState({
+      character: {
+        ...this.state.character,
+        bonds: this.state.character.bonds.concat(newBond)
+      },
+      bondSubmitted: true,
+      // selectedForm: null,
+      bondsRemaining: this.state.bondsRemaining - 1
+    });
   };
 
   render() {
+    console.log('State', this.state);
     let displayedForm = null;
     let result = null;
     let characterDisplay = null;
     let bondResult = null;
     let characterResult = null;
-    vowResult = null;
-    settingResult = null;
+    let vowResult = null;
+    let settingResult = null;
     if (this.state.characterSubmitted) {
       characterResult = (
         <li data-testid="characterSubmitResult">Character Created!</li>
       );
     }
     if (this.state.bondsRemaining === 0) {
-      bondResult = <li data-testid="bondSubmitResult">Bonds Created!</li>;
+      bondResult = <li data-testid="bondsSubmitResult">Bonds Created!</li>;
     }
-
+    console.log('Bonds Remaining', this.state.bondsRemaining);
     if (this.state.character) {
       characterDisplay = <Character character={this.state.character} />;
     }
@@ -60,8 +62,12 @@ export default class SetupPage extends Component {
     } else if (this.state.selectedForm === 'bonds') {
       displayedForm = (
         <>
-          <h3 data-testid="bondsRemaining">
-            Create or Reserve {this.state.bondsRemaining} more bonds.
+          <h3>
+            Create or Reserve{' '}
+            <span data-testid="bondsRemaining">
+              {this.state.bondsRemaining}
+            </span>{' '}
+            more bonds.
           </h3>
           <BondsForm onSend={this.bondSubmitHandler} />
         </>
@@ -74,6 +80,7 @@ export default class SetupPage extends Component {
         <div className="submit-result">
           <h3>Progress</h3>
           <ul>{characterResult}</ul>
+          <ul>{bondResult}</ul>
         </div>
       );
     }

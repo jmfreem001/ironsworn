@@ -42,22 +42,27 @@ describe('Setup a new game entry', () => {
       .contains('Mikus');
 
     // create bonds or leave some in reserve.
-    cy.get('[data-testid="bondsRemaining"]');
+    cy.get('[data-testid="bondsRemaining"]').contains('3');
     cy.get('[data-testid="bondNameInput"]').type('Einsmark');
     cy.get('[data-testid="bondNotesInput"]');
     cy.get('[data-testid="bondSubmitButton"]').click();
+    cy.get('[data-testid="bondsRemaining"]').contains('2');
 
+    //Place middle bond in reserve.
+    cy.get('[data-testid="bondReserveBox"]').click();
+    cy.get('[data-testid="bondReserveBox"]').should('have.attr', 'checked');
+    cy.get('[data-testid="bondSubmitButton"]').click();
+    cy.get('[data-testid="bondsRemaining"]').contains('1');
+
+    cy.get('[data-testid="bondReserveBox"]').should('not.have.attr', 'checked');
     cy.get('[data-testid="bondNameInput"]').type('Mira');
     cy.get('[data-testid="bondNotesInput"]').type(
       'Sister. High Spirited. Has a friendly rivalry with Mikus'
     );
     cy.get('[data-testid="bondSubmitButton"]').click();
 
-    //Place final bond in reserve.
-    cy.get('[data-testid="bondReserveBox"]').click();
-    cy.get('[data-testid="bondSubmitButton"]').click();
-
     cy.get('[data-testid="bondsSubmitResult"]').contains(/created/i);
+    cy.get('[data-testid="bondsRemaining"]').should('not.be.visible');
 
     // Vows should be visible on character card.
 

@@ -1,247 +1,251 @@
-[
-  {
-    "name": "face danger",
-    "description": "Attempt something risky or react to an imminent threat, envision your action and roll. ",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "secure an advantage",
-    "description": "Assess a situation, make preparations, or attempt to gain leverage, envision your action and roll.",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "gather information",
-    "description": "Search an area, ask questions, conduct an investigation, or follow a track",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "heal",
-    "description": "Treat an injury or ailment",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "resupply",
-    "description": "Hunt, forage, or scavenge",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "make camp",
-    "description": "Rest and recover for several hours in the wild",
-    "dependent": false,
-    "type": "action",
-    "category": "adventure"
-  },
-  {
-    "name": "undertake a jouney",
-    "description": "Travel across hazardous or unfamiliar lands",
-    "dependent": false,
-    "type": "ranked",
-    "category": "adventure"
-  },
-  {
-    "name": "reach your destination",
-    "description": "Your journey comes to an end",
-    "dependent": false,
-    "type": "progress",
-    "category": "adventure"
-  },
-  {
-    "name": "compel",
-    "description": "Attempt to persuade someone to do something",
-    "dependent": false,
-    "type": "action",
-    "category": "relationship"
-  },
-  {
-    "name": "sojourn",
-    "description": "Spend time in a community seeking assistance",
-    "dependent": false,
-    "type": "action",
-    "category": "relationship"
-  },
-  {
-    "name": "draw the circle",
-    "description": "Challenge someone to a formal duel, or accept a challenge",
-    "dependent": false,
-    "type": "action",
-    "category": "relationship"
-  },
-  {
-    "name": "forge a bond",
-    "description": "Spend significant time with a person or community, stand together to face hardships, or make sacrifices for their cause, you can attempt to create a bond",
-    "dependent": false,
-    "type": "action",
-    "category": "relationship"
-  },
-  {
-    "name": "test your bond",
-    "description": "Bond is tested through conflict, betrayal, or circumstance,",
-    "dependent": false,
-    "type": "action",
-    "category": "relationship"
-  },
-  {
-    "name": "aid your ally",
-    "description": "Secure an Advantage in direct support of an ally",
-    "dependent": false,
-    "type": "choice?",
-    "category": "relationship"
-  },
-  {
-    "name": "write your epilogue",
-    "description": "Retire from your life as Ironsworn",
-    "dependent": false,
-    "type": "progress",
-    "category": "relationship"
-  },
-  {
-    "name": "enter the fray",
-    "description": "Enter into combat",
-    "dependent": false,
-    "type": "ranked",
-    "category": "combat"
-  },
-  {
-    "name": "strike",
-    "description": "Attack when you have initiative",
-    "dependent": true,
-    "type": "action",
-    "category": "combat"
-  },
-  {
-    "name": "clash",
-    "description": "Fight when foe has initiative",
-    "dependent": true,
-    "type": "action",
-    "category": "combat"
-  },
-  {
-    "name": "turn the tide",
-    "description": "Risk it all",
-    "dependent": true,
-    "type": "choice?",
-    "category": "combat"
-  },
-  {
-    "name": "end the fight",
-    "description": "Resolve the outcome of this fight",
-    "dependent": true,
-    "type": "progress",
-    "category": "combat"
-  },
-  {
-    "name": "battle",
-    "description": "Fight a battle, and it happens in a blur, envision your objective and roll. ",
-    "dependent": false,
-    "type": "action",
-    "category": "combat"
-  },
-  {
-    "name": "endure harm",
-    "description": "You face physical damage",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "face death",
-    "description": "You are brought to the brink of death, and glimpse the world beyond",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "companion endure harm",
-    "description": "Your companion faces physical damage",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "endure stress",
-    "description": "You face mental shock or despair,",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "face desolation",
-    "description": "You are brought to the brink of desolation",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "out of supply",
-    "description": "Your supply is exhausted ",
-    "dependent": true,
-    "type": "action",
-    "category": "suffer"
-  },
-  {
-    "name": "face a setback",
-    "description": "Your momentum is at its minimum ",
-    "dependent": true,
-    "type": "choice",
-    "category": "suffer"
-  },
-  {
-    "name": "swear an iron vow",
-    "description": "Swear upon iron to complete a quest",
-    "dependent": false,
-    "type": "ranked",
-    "category": "quest"
-  },
-  {
-    "name": "reach a milestone",
-    "description": "You make significant progress in your quest by overcoming a critical obstacle, completing a perilous journey, solving a complex mystery, defeating a powerful threat, gaining vital support, or acquiring a crucial item, ",
-    "dependent": false,
-    "type": "choice",
-    "category": "quest"
-  },
-  {
-    "name": "fulfill your vow",
-    "description": "You achieve what you believe to be the fulfillment of your vow, ",
-    "dependent": false,
-    "type": "progress",
-    "category": "quest"
-  },
-  {
-    "name": "forsake your vow",
-    "description": "You renounce your quest, betray your promise, or the goal is lost to you",
-    "dependent": false,
-    "type": "choice?",
-    "category": "quest"
-  },
-  {
-    "name": "advance",
-    "description": "You focus on your skills, receive training, find inspiration, earn a reward, or gain a companion",
-    "dependent": false,
-    "type": "choice",
-    "category": "quest"
-  },
-  {
-    "name": "pay the price",
-    "description": "You suffer the outcome of a move",
-    "dependent": true,
-    "type": "roll",
-    "category": "fate"
-  },
-  {
-    "name": "ask the oracle",
-    "description": "You seek to resolve questions, discover details in the world, determine how other characters respond, or trigger encounters or events,",
-    "dependent": false,
-    "type": "roll",
-    "category": "fate"
+{
+  "data": {
+    "moves": [
+      {
+        "name": "face danger",
+        "description": "Attempt something risky or react to an imminent threat, envision your action and roll. ",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "secure an advantage",
+        "description": "Assess a situation, make preparations, or attempt to gain leverage, envision your action and roll.",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "gather information",
+        "description": "Search an area, ask questions, conduct an investigation, or follow a track",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "heal",
+        "description": "Treat an injury or ailment",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "resupply",
+        "description": "Hunt, forage, or scavenge",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "make camp",
+        "description": "Rest and recover for several hours in the wild",
+        "dependent": false,
+        "type": "action",
+        "category": "adventure"
+      },
+      {
+        "name": "undertake a jouney",
+        "description": "Travel across hazardous or unfamiliar lands",
+        "dependent": false,
+        "type": "ranked",
+        "category": "adventure"
+      },
+      {
+        "name": "reach your destination",
+        "description": "Your journey comes to an end",
+        "dependent": false,
+        "type": "progress",
+        "category": "adventure"
+      },
+      {
+        "name": "compel",
+        "description": "Attempt to persuade someone to do something",
+        "dependent": false,
+        "type": "action",
+        "category": "relationship"
+      },
+      {
+        "name": "sojourn",
+        "description": "Spend time in a community seeking assistance",
+        "dependent": false,
+        "type": "action",
+        "category": "relationship"
+      },
+      {
+        "name": "draw the circle",
+        "description": "Challenge someone to a formal duel, or accept a challenge",
+        "dependent": false,
+        "type": "action",
+        "category": "relationship"
+      },
+      {
+        "name": "forge a bond",
+        "description": "Spend significant time with a person or community, stand together to face hardships, or make sacrifices for their cause, you can attempt to create a bond",
+        "dependent": false,
+        "type": "action",
+        "category": "relationship"
+      },
+      {
+        "name": "test your bond",
+        "description": "Bond is tested through conflict, betrayal, or circumstance,",
+        "dependent": false,
+        "type": "action",
+        "category": "relationship"
+      },
+      {
+        "name": "aid your ally",
+        "description": "Secure an Advantage in direct support of an ally",
+        "dependent": false,
+        "type": "choice?",
+        "category": "relationship"
+      },
+      {
+        "name": "write your epilogue",
+        "description": "Retire from your life as Ironsworn",
+        "dependent": false,
+        "type": "progress",
+        "category": "relationship"
+      },
+      {
+        "name": "enter the fray",
+        "description": "Enter into combat",
+        "dependent": false,
+        "type": "ranked",
+        "category": "combat"
+      },
+      {
+        "name": "strike",
+        "description": "Attack when you have initiative",
+        "dependent": true,
+        "type": "action",
+        "category": "combat"
+      },
+      {
+        "name": "clash",
+        "description": "Fight when foe has initiative",
+        "dependent": true,
+        "type": "action",
+        "category": "combat"
+      },
+      {
+        "name": "turn the tide",
+        "description": "Risk it all",
+        "dependent": true,
+        "type": "choice?",
+        "category": "combat"
+      },
+      {
+        "name": "end the fight",
+        "description": "Resolve the outcome of this fight",
+        "dependent": true,
+        "type": "progress",
+        "category": "combat"
+      },
+      {
+        "name": "battle",
+        "description": "Fight a battle, and it happens in a blur, envision your objective and roll. ",
+        "dependent": false,
+        "type": "action",
+        "category": "combat"
+      },
+      {
+        "name": "endure harm",
+        "description": "You face physical damage",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "face death",
+        "description": "You are brought to the brink of death, and glimpse the world beyond",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "companion endure harm",
+        "description": "Your companion faces physical damage",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "endure stress",
+        "description": "You face mental shock or despair,",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "face desolation",
+        "description": "You are brought to the brink of desolation",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "out of supply",
+        "description": "Your supply is exhausted ",
+        "dependent": true,
+        "type": "action",
+        "category": "suffer"
+      },
+      {
+        "name": "face a setback",
+        "description": "Your momentum is at its minimum ",
+        "dependent": true,
+        "type": "choice",
+        "category": "suffer"
+      },
+      {
+        "name": "swear an iron vow",
+        "description": "Swear upon iron to complete a quest",
+        "dependent": false,
+        "type": "ranked",
+        "category": "quest"
+      },
+      {
+        "name": "reach a milestone",
+        "description": "You make significant progress in your quest by overcoming a critical obstacle, completing a perilous journey, solving a complex mystery, defeating a powerful threat, gaining vital support, or acquiring a crucial item, ",
+        "dependent": false,
+        "type": "choice",
+        "category": "quest"
+      },
+      {
+        "name": "fulfill your vow",
+        "description": "You achieve what you believe to be the fulfillment of your vow, ",
+        "dependent": false,
+        "type": "progress",
+        "category": "quest"
+      },
+      {
+        "name": "forsake your vow",
+        "description": "You renounce your quest, betray your promise, or the goal is lost to you",
+        "dependent": false,
+        "type": "choice?",
+        "category": "quest"
+      },
+      {
+        "name": "advance",
+        "description": "You focus on your skills, receive training, find inspiration, earn a reward, or gain a companion",
+        "dependent": false,
+        "type": "choice",
+        "category": "quest"
+      },
+      {
+        "name": "pay the price",
+        "description": "You suffer the outcome of a move",
+        "dependent": true,
+        "type": "roll",
+        "category": "fate"
+      },
+      {
+        "name": "ask the oracle",
+        "description": "You seek to resolve questions, discover details in the world, determine how other characters respond, or trigger encounters or events,",
+        "dependent": false,
+        "type": "roll",
+        "category": "fate"
+      }
+    ]
   }
-]
+}

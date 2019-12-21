@@ -85,7 +85,9 @@ const CharacterForm = ({ onSend }) => {
         health: 5,
         spirit: 5,
         momentum: 2
-      }
+      },
+      bonds: [],
+      vows: []
     };
     onSend(newCharacter);
   };
