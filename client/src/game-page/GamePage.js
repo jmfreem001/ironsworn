@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from '../Header';
-import Results from './Results';
-import Character from '../Character';
+import Header from '../common/Header/Header';
+import Results from './Main/Results/Results';
+import Character from '../common/Character/Character';
 import './GamePage.scss';
-import Controls from './Controls';
-import Choices from './Choices';
-import { handleActionRoll } from '../rollers';
-import Main from './Main';
-import Log from './Log';
-import LogBook from './LogBook';
+import Controls from './Main/Controls/Controls';
+import Choices from './Main/Choices/Choices';
+import { handleActionRoll } from '../common/rollers';
+import Main from './Main/Main';
+import Log from './Log/Log';
+import LogBook from './LogBook/LogBook';
 // import forest from '../public/white-forest.jpg';
 
 export default class GamePage extends Component {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LogInput from './LogInput';
+import LogInput from './LogInput/LogInput';
 import './Log.scss';
 
 export default function Log({ onSend }) {

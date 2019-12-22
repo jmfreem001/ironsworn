@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../Header';
+import Header from '../common/Header/Header';
 import './SetupPage.scss';
 import CharacterForm from './CharacterForm';
-import Character from '../Character';
+import Character from '../common/Character/Character';
 import BondsForm from './BondsForm';
 
 export default class SetupPage extends Component {
@@ -75,6 +75,7 @@ export default class SetupPage extends Component {
     }
     let resultList = [characterResult, bondResult, vowResult, settingResult];
     //TODO: Turn results into an ul of the results.
+    // TODO: Create a presentational component for SubmissionProgress
     if (this.state.characterSubmitted) {
       result = (
         <div className="submit-result">
@@ -84,7 +85,7 @@ export default class SetupPage extends Component {
         </div>
       );
     }
-
+    // TODO: Refactor Header and buttons to a cockpit component?
     return (
       <div className="setup-page">
         <Header text="Character/World Setup" />

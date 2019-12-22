@@ -11,7 +11,4 @@ describe('<SetupPage />', () => {
   describe('clicking the character button', () => {
     it('displays character form', () => {});
   });
-  describe('clicking the setting button', () => {
-    it('displays setting form', () => {});
-  });
 });

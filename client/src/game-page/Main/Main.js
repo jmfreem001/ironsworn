@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Controls from './Controls';
-import Choices from './Choices';
-import Results from './Results';
+import Controls from './Controls/Controls';
+import Choices from './Choices/Choices';
+import Results from './Results/Results';
 // import { handleActionRoll } from './rollers';
 
 /*Component responsible for managing th 3 main divs, 
