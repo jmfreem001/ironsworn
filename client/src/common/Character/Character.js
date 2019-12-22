@@ -2,6 +2,16 @@ import React from 'react';
 
 import './Character.scss';
 
+const Bond = ({ bond }) => {
+  let ticks = bond.ticks;
+
+  return (
+    <li key={bond.name}>
+      {bond.name} notes: {bond.notes || 'N/A'}
+    </li>
+  );
+};
+
 export default function Character({ character }) {
   const stats = Object.keys(character.stats);
   const statDisplay = stats.map(stat => (
@@ -9,6 +19,27 @@ export default function Character({ character }) {
       : {character.stats[stat]}
     </p>
   ));
+  let bonds = null;
+  if (character.bonds.length > 0) {
+    bonds = character.bonds.map(bond =>
+      bond.reserved ? null : <Bond bond={bond} key={bond.name} />
+    );
+  }
+  let remainingBondsCount = character.bonds.filter(
+    bond => bond.reserved === true
+  ).length;
+  console.log('Rmaining Bonds', remainingBondsCount);
+  let remainingBonds = null;
+  if (remainingBondsCount > 0) {
+    remainingBonds = <p>Bonds in reserve:{remainingBondsCount}</p>;
+  }
+  const bondDisplay = (
+    <>
+      <h4>Bonds</h4>
+      {remainingBonds}
+      <ul>{bonds}</ul>
+    </>
+  );
 
   // const equipment = character.equipment.map(item => <li key={item}>{item}</li>);
   return (
@@ -21,7 +52,7 @@ export default function Character({ character }) {
       {/* <h5>Equipment</h5>
       <ul>{equipment}</ul> */}
       {/* Need to add Momentum. */}
-      {/* bonds */}
+      {bondDisplay}
       {/* vows */}
       <p>NEW CHAR DIV</p>
     </div>

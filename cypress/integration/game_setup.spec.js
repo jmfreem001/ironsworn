@@ -50,10 +50,9 @@ describe('Setup a new game entry', () => {
 
     //Place middle bond in reserve.
     cy.get('[data-testid="bondReserveBox"]').click();
-    cy.get('[data-testid="bondReserveBox"]').should('have.attr', 'checked');
     cy.get('[data-testid="bondSubmitButton"]').click();
     cy.get('[data-testid="bondsRemaining"]').contains('1');
-
+    // create final bond
     cy.get('[data-testid="bondReserveBox"]').should('not.have.attr', 'checked');
     cy.get('[data-testid="bondNameInput"]').type('Mira');
     cy.get('[data-testid="bondNotesInput"]').type(
@@ -64,11 +63,18 @@ describe('Setup a new game entry', () => {
     cy.get('[data-testid="bondsSubmitResult"]').contains(/created/i);
     cy.get('[data-testid="bondsRemaining"]').should('not.be.visible');
 
-    // Vows should be visible on character card.
+    // Bonds should be visible on character card.
+    cy.get('[data-testid="characterDisplay"]')
+      .children()
+      .contains(/bonds/i);
 
     cy.get('[data-testid="Input"]');
     //vows 1 background vow at extreme or epic then inciting incident
     // Vows input fields.
+    // vowsshould be visible on character card.
+    cy.get('[data-testid="characterDisplay"]')
+      .children()
+      .contains(/vows/i);
   });
   it('create a fully randomized character', () => {
     // Character create button

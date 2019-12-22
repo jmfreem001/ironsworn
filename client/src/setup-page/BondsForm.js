@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 const BondsForm = ({ onSend }) => {
   let initialState = {
     name: '',
-    notes: ''
+    notes: '',
+    reserved: false
   };
   let [bond, setBond] = useState(initialState);
 
@@ -11,6 +12,12 @@ const BondsForm = ({ onSend }) => {
     setBond({
       ...bond,
       [e.target.name]: e.target.value
+    });
+  };
+  let checkHandler = e => {
+    setBond({
+      ...bond,
+      [e.target.name]: !bond.reserved
     });
   };
   let submitHandler = e => {
@@ -31,8 +38,9 @@ const BondsForm = ({ onSend }) => {
           <input
             type="checkbox"
             name="reserved"
-            onChange={changeHandler}
+            onChange={checkHandler}
             data-testid="bondReserveBox"
+            checked={bond.reserved}
           />
         </label>
         <label className="primary-label" htmlFor="name">

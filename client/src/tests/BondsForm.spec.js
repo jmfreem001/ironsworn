@@ -27,6 +27,7 @@ describe.only('<BondsForm />', () => {
     });
 
     it('submits a bond', () => {
+      // submit first bond
       fireEvent.change(getByTestId('bondNameInput'), {
         target: {
           value: bondName1
@@ -41,6 +42,7 @@ describe.only('<BondsForm />', () => {
       expect(sendHandler).toHaveBeenCalledWith({
         name: bondName1,
         notes: bondNotes1,
+        reserved: false,
         ticks: 1
       });
       expect(getByTestId('bondNameInput')).not.toHaveValue(bondName1);
@@ -48,9 +50,16 @@ describe.only('<BondsForm />', () => {
     });
     it('disables other boxes when reserved', () => {
       fireEvent.click(getByTestId('bondReserveBox'));
+      expect(getByTestId('bondReserveBox')).toBeChecked();
       expect(getByTestId('bondNameInput')).toBeDisabled();
       expect(getByTestId('bondNotesInput')).toBeDisabled();
     });
-    it.todo('submits reserved bonds');
+    it('unchecks reserved box after submission', () => {
+      fireEvent.click(getByTestId('bondReserveBox'));
+      expect(getByTestId('bondReserveBox')).toBeChecked();
+
+      fireEvent.click(getByTestId('bondSubmitButton'));
+      expect(getByTestId('bondReserveBox')).not.toBeChecked();
+    });
   });
 });

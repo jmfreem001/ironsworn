@@ -1,18 +1,20 @@
 @import '../../variables.scss';
 .character {
   background-color: $white;
-}
-
-.stats:before {
-  content: attr(data-header);
-  float: left;
-  text-transform: capitalize;
-  font-weight: bold;
-  display: flex;
-  margin-left: 1.5rem;
-}
-
-.stats {
-  display: block;
-  text-align: left;
+  .stats {
+    display: block;
+    text-align: left;
+    &:before {
+      content: attr(data-header);
+      float: left;
+      text-transform: capitalize;
+      font-weight: bold;
+      display: flex;
+      margin-left: 1.5rem;
+    }
+  }
+  li {
+    list-style-type: none;
+    margin-left: 1.5rem;
+  }
 }

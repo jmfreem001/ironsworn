@@ -31,9 +31,14 @@ export default class SetupPage extends Component {
         bonds: this.state.character.bonds.concat(newBond)
       },
       bondSubmitted: true,
-      // selectedForm: null,
       bondsRemaining: this.state.bondsRemaining - 1
     });
+    // Check if the currently submitted bond was the last one. and if so clear the form from view.
+    if (this.state.bondsRemaining === 1) {
+      this.setState({
+        selectedForm: null
+      });
+    }
   };
 
   render() {
@@ -53,7 +58,6 @@ export default class SetupPage extends Component {
     if (this.state.bondsRemaining === 0) {
       bondResult = <li data-testid="bondsSubmitResult">Bonds Created!</li>;
     }
-    console.log('Bonds Remaining', this.state.bondsRemaining);
     if (this.state.character) {
       characterDisplay = <Character character={this.state.character} />;
     }
