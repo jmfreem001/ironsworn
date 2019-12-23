@@ -9,6 +9,6 @@ describe('<SetupPage />', () => {
   afterEach(cleanup);
 
   describe('clicking the character button', () => {
-    it('displays character form', () => {});
+    it.todo('displays character form');
   });
 });
