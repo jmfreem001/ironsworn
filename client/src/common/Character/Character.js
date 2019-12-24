@@ -11,6 +11,13 @@ const Bond = ({ bond }) => {
     </li>
   );
 };
+const Vow = ({ vow }) => {
+  return (
+    <li key={vow.name}>
+      {vow.name} notes: {vow.notes || 'N/A'}
+    </li>
+  );
+};
 
 export default function Character({ character }) {
   const stats = Object.keys(character.stats);
@@ -41,6 +48,18 @@ export default function Character({ character }) {
     </>
   );
 
+  let vows = null;
+  if (character.vows.length > 0) {
+    vows = character.vows.map(vow => <Vow vow={vow} key={vow.name} />);
+  }
+
+  const vowDisplay = (
+    <>
+      <h4>Vows</h4>
+      <ul>{vows}</ul>
+    </>
+  );
+
   // const equipment = character.equipment.map(item => <li key={item}>{item}</li>);
   return (
     <div className="character" data-testid="characterDisplay">
@@ -53,8 +72,8 @@ export default function Character({ character }) {
       <ul>{equipment}</ul> */}
       {/* Need to add Momentum. */}
       {bondDisplay}
-      {/* vows */}
-      <p>NEW CHAR DIV</p>
+      {vowDisplay}
+      {/* <p>NEW CHAR DIV</p> */}
     </div>
   );
 }

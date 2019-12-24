@@ -67,10 +67,55 @@ describe('Setup a new game entry', () => {
     cy.get('[data-testid="characterDisplay"]')
       .children()
       .contains(/bonds/i);
+    // Create background vow
+    cy.get('[data-testid="vowNameInput"]').type('Slay the great wyvern');
+    cy.get('[data-testid="vowNotesInput"]').type(
+      "As a child Mikus and his sister narrowly escaped the desctruction. Their parent's and the rest of the village did not"
+    );
+    cy.get('[data-testid="vowRankInput"]').select('epic');
+    cy.get('[data-testid="vowMilestonesInput"]').type(
+      'Research Great Wyvern and its location'
+    );
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type('Gain allies');
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type(
+      'Procure the Arrow of Annihilation'
+    );
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type(
+      "Travel to Wyvern's lair"
+    );
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type(
+      'Develop a plan of attack'
+    );
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type('Defeat Wyvern');
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesList"]').should('be.visible');
+    cy.get('[data-testid="vowSubmitButton"]').click();
 
-    cy.get('[data-testid="Input"]');
-    //vows 1 background vow at extreme or epic then inciting incident
-    // Vows input fields.
+    //Create inciting incident
+
+    cy.get('[data-testid="vowNameInput"]').type(
+      'Find out why the river has gone dry'
+    );
+    cy.get('[data-testid="vowNotesInput"]').type(
+      'The river has run strong for as long as ironlanders have lived in Einsmark, but one day not a drop of water. ' +
+        'The villagers are worried because it was the sourve of water and food for the village. Without it life is unsustationable. ' +
+        'And with no other settlements nearby this could be the end for many.'
+    );
+    cy.get('[data-testid="vowRankInput"]').select('dangerous');
+    cy.get('[data-testid="vowMilestonesInput"]').type('Travel upstream');
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesInput"]').type(
+      'Restore the flow of the river.'
+    );
+    cy.get('[data-testid="vowMilestonesSubmit"]').click();
+    cy.get('[data-testid="vowMilestonesList"]').should('be.visible');
+    cy.get('[data-testid="vowSubmitButton"]').click();
+
     // vowsshould be visible on character card.
     cy.get('[data-testid="characterDisplay"]')
       .children()

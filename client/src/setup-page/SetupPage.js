@@ -4,10 +4,10 @@ import './SetupPage.scss';
 import CharacterForm from './CharacterForm';
 import Character from '../common/Character/Character';
 import BondsForm from './BondsForm';
-import Buttons from '../common/Buttons/Buttons';
 import SubmissionProgress from './SubmissionProgress';
 import SetupButtons from './SetupButtons';
 import RemainingBonds from './RemainingBonds';
+import VowsForm from './VowsForm';
 
 export default class SetupPage extends Component {
   state = {
@@ -19,7 +19,8 @@ export default class SetupPage extends Component {
       vows: false,
       setting: false
     },
-    bondsRemaining: 3
+    bondsRemaining: 3,
+    vowsRemaining: 2
   };
 
   updateSelectedForm = e => {
@@ -40,11 +41,28 @@ export default class SetupPage extends Component {
       },
       bondsRemaining: this.state.bondsRemaining - 1
     });
-    // Check if the currently submitted bond was the last one. and if so clear the form from view.
+    // Check if the currently submitted bond was the last one. and if so move to vows.
     if (this.state.bondsRemaining === 1) {
       this.setState({
-        selectedForm: null,
+        selectedForm: 'vows',
         submitted: { ...this.state.submitted, bonds: true }
+      });
+    }
+  };
+
+  vowSubmitHandler = newVow => {
+    this.setState({
+      character: {
+        ...this.state.character,
+        vows: this.state.character.vows.concat(newVow),
+        vowsRemaining: this.state.vowsRemaining - 1
+      }
+    });
+    // Check if the currently submitted vow was the last one. and if so clear the form from view.
+    if (this.state.vowsRemaining === 1) {
+      this.setState({
+        selectedForm: null,
+        submitted: { ...this.state.submitted, vows: true }
       });
     }
   };
@@ -65,6 +83,8 @@ export default class SetupPage extends Component {
           <BondsForm onSend={this.bondSubmitHandler} />
         </>
       );
+    } else if (this.state.selectedForm === 'vows') {
+      displayedForm = <VowsForm onSend={this.vowSubmitHandler} />;
     }
     return (
       <div className="setup-page">

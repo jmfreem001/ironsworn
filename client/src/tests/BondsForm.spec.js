@@ -8,7 +8,7 @@ import {
 import BondsForm from '../setup-page/BondsForm';
 expect.extend({ toBeDisabled, toBeChecked, toHaveValue });
 
-describe.only('<BondsForm />', () => {
+describe('<BondsForm />', () => {
   let getByTestId;
 
   afterEach(cleanup);
